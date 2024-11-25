@@ -20,6 +20,7 @@ from kvpress import (
     ExpectedAttentionPress,
     KnormPress,
     ObservedAttentionPress,
+    QFilterPress,
     RandomPress,
     SnapKVPress,
     StreamingLLMPress,
@@ -120,6 +121,10 @@ def evaluate(
     assert press_name in PRESS_DICT
     press = PRESS_DICT[press_name]
     press.compression_ratio = compression_ratio
+
+    if isinstance(press, QFilterPress):
+        qfilters = pickle.load(open(f"/gpfswork/rech/awr/uof65ov/kv_cache_comp/filters/{model}/svd5000.pkl", "rb"))
+        press.qfilters = qfilters
 
     # Initialize pipeline with the correct attention implementation
     if isinstance(press, ObservedAttentionPress):
