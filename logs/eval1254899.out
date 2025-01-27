@@ -1,0 +1,56 @@
+Using the latest cached version of the dataset since MaxJeblick/InfiniteBench couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'longbook_qa_eng' at /lustre/fsn1/projects/rech/awr/uof65ov/hf_cache/MaxJeblick___infinite_bench/longbook_qa_eng/0.0.0/aaead86e917560307fb0fd5b5c53da52f663865f (last modified on Tue Nov 26 23:57:29 2024).
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  6.49it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  2.73it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.81it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  4.49it/s]
+  0%|          | 0/69 [00:00<?, ?it/s]The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+  1%|▏         | 1/69 [00:17<20:13, 17.84s/it]Token indices sequence length is longer than the specified maximum sequence length for this model (407183 > 131072). Running this sequence through the model will result in indexing errors
+Context length has been truncated from 407183 to 131072 tokens.
+  3%|▎         | 2/69 [00:51<30:11, 27.04s/it]Context length has been truncated from 155604 to 131072 tokens.
+  4%|▍         | 3/69 [01:26<33:48, 30.73s/it]  6%|▌         | 4/69 [01:47<29:04, 26.83s/it]  7%|▋         | 5/69 [02:07<25:58, 24.36s/it]Context length has been truncated from 142851 to 131072 tokens.
+  9%|▊         | 6/69 [02:40<28:36, 27.24s/it] 10%|█         | 7/69 [03:01<26:13, 25.38s/it] 12%|█▏        | 8/69 [03:24<24:50, 24.44s/it]Context length has been truncated from 189422 to 131072 tokens.
+ 13%|█▎        | 9/69 [03:56<26:52, 26.88s/it]Context length has been truncated from 223465 to 131072 tokens.
+ 14%|█▍        | 10/69 [04:28<27:59, 28.46s/it]You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+Context length has been truncated from 232373 to 131072 tokens.
+ 16%|█▌        | 11/69 [05:01<28:51, 29.85s/it]Context length has been truncated from 266590 to 131072 tokens.
+ 17%|█▋        | 12/69 [05:33<29:08, 30.68s/it]Context length has been truncated from 201523 to 131072 tokens.
+ 19%|█▉        | 13/69 [06:09<29:59, 32.13s/it]Context length has been truncated from 134060 to 131072 tokens.
+ 20%|██        | 14/69 [06:41<29:34, 32.27s/it]Context length has been truncated from 183236 to 131072 tokens.
+ 22%|██▏       | 15/69 [07:14<29:02, 32.27s/it]Context length has been truncated from 398587 to 131072 tokens.
+ 23%|██▎       | 16/69 [07:47<28:39, 32.44s/it] 25%|██▍       | 17/69 [08:05<24:22, 28.12s/it]Context length has been truncated from 199356 to 131072 tokens.
+ 26%|██▌       | 18/69 [08:37<24:57, 29.37s/it]Context length has been truncated from 213785 to 131072 tokens.
+ 28%|██▊       | 19/69 [09:11<25:42, 30.85s/it] 29%|██▉       | 20/69 [09:24<20:52, 25.55s/it]Context length has been truncated from 282547 to 131072 tokens.
+ 30%|███       | 21/69 [10:00<22:50, 28.55s/it]Context length has been truncated from 148091 to 131072 tokens.
+ 32%|███▏      | 22/69 [10:34<23:43, 30.28s/it]Context length has been truncated from 194698 to 131072 tokens.
+ 33%|███▎      | 23/69 [11:06<23:38, 30.83s/it] 35%|███▍      | 24/69 [11:38<23:22, 31.17s/it]Context length has been truncated from 237794 to 131072 tokens.
+ 36%|███▌      | 25/69 [12:13<23:37, 32.21s/it]Context length has been truncated from 301178 to 131072 tokens.
+ 38%|███▊      | 26/69 [12:46<23:17, 32.51s/it]Context length has been truncated from 180445 to 131072 tokens.
+ 39%|███▉      | 27/69 [13:19<22:51, 32.65s/it]Context length has been truncated from 261046 to 131072 tokens.
+ 41%|████      | 28/69 [13:55<22:56, 33.58s/it] 42%|████▏     | 29/69 [14:15<19:43, 29.59s/it] 43%|████▎     | 30/69 [14:32<16:40, 25.65s/it]Context length has been truncated from 213441 to 131072 tokens.
+ 45%|████▍     | 31/69 [15:06<17:48, 28.13s/it]Context length has been truncated from 188157 to 131072 tokens.
+ 46%|████▋     | 32/69 [15:40<18:32, 30.07s/it] 48%|████▊     | 33/69 [16:10<18:00, 30.01s/it] 49%|████▉     | 34/69 [16:31<15:55, 27.31s/it]Context length has been truncated from 244874 to 131072 tokens.
+ 51%|█████     | 35/69 [17:03<16:13, 28.64s/it] 52%|█████▏    | 36/69 [17:21<14:04, 25.59s/it]Context length has been truncated from 177477 to 131072 tokens.
+ 54%|█████▎    | 37/69 [17:53<14:39, 27.48s/it]Context length has been truncated from 145802 to 131072 tokens.
+ 55%|█████▌    | 38/69 [18:25<14:53, 28.82s/it] 57%|█████▋    | 39/69 [18:56<14:42, 29.42s/it]Context length has been truncated from 163637 to 131072 tokens.
+ 58%|█████▊    | 40/69 [19:27<14:31, 30.05s/it] 59%|█████▉    | 41/69 [19:42<11:51, 25.40s/it] 61%|██████    | 42/69 [20:00<10:24, 23.12s/it]Context length has been truncated from 279569 to 131072 tokens.
+ 62%|██████▏   | 43/69 [20:32<11:08, 25.71s/it]Context length has been truncated from 264026 to 131072 tokens.
+ 64%|██████▍   | 44/69 [21:06<11:48, 28.36s/it] 65%|██████▌   | 45/69 [21:39<11:50, 29.62s/it]Context length has been truncated from 144034 to 131072 tokens.
+ 67%|██████▋   | 46/69 [22:12<11:50, 30.89s/it]Context length has been truncated from 148556 to 131072 tokens.
+ 68%|██████▊   | 47/69 [22:45<11:29, 31.35s/it]Context length has been truncated from 178119 to 131072 tokens.
+ 70%|██████▉   | 48/69 [23:17<11:00, 31.46s/it] 71%|███████   | 49/69 [23:35<09:12, 27.62s/it]Context length has been truncated from 604752 to 131072 tokens.
+ 72%|███████▏  | 50/69 [24:10<09:27, 29.85s/it]Context length has been truncated from 204237 to 131072 tokens.
+ 74%|███████▍  | 51/69 [24:43<09:14, 30.82s/it] 75%|███████▌  | 52/69 [25:02<07:40, 27.09s/it] 77%|███████▋  | 53/69 [25:18<06:18, 23.67s/it]Context length has been truncated from 233473 to 131072 tokens.
+ 78%|███████▊  | 54/69 [25:51<06:39, 26.63s/it]Context length has been truncated from 255476 to 131072 tokens.
+ 80%|███████▉  | 55/69 [26:23<06:35, 28.23s/it] 81%|████████  | 56/69 [26:43<05:33, 25.65s/it]Context length has been truncated from 222834 to 131072 tokens.
+ 83%|████████▎ | 57/69 [27:16<05:36, 28.02s/it] 84%|████████▍ | 58/69 [27:44<05:07, 27.95s/it]Context length has been truncated from 452633 to 131072 tokens.
+ 86%|████████▌ | 59/69 [28:18<04:59, 29.91s/it]Context length has been truncated from 152805 to 131072 tokens.
+ 87%|████████▋ | 60/69 [28:54<04:44, 31.60s/it]Context length has been truncated from 135020 to 131072 tokens.
+ 88%|████████▊ | 61/69 [29:26<04:14, 31.86s/it]Context length has been truncated from 155800 to 131072 tokens.
+ 90%|████████▉ | 62/69 [30:00<03:47, 32.49s/it]Context length has been truncated from 539229 to 131072 tokens.
+ 91%|█████████▏| 63/69 [30:35<03:18, 33.10s/it]Context length has been truncated from 384805 to 131072 tokens.
+ 93%|█████████▎| 64/69 [31:09<02:47, 33.50s/it]Context length has been truncated from 265568 to 131072 tokens.
+ 94%|█████████▍| 65/69 [31:41<02:12, 33.02s/it]Context length has been truncated from 132858 to 131072 tokens.
+ 96%|█████████▌| 66/69 [32:14<01:38, 32.96s/it]Context length has been truncated from 744467 to 131072 tokens.
+ 97%|█████████▋| 67/69 [32:47<01:06, 33.05s/it]Context length has been truncated from 245768 to 131072 tokens.
+ 99%|█████████▊| 68/69 [33:20<00:33, 33.01s/it]100%|██████████| 69/69 [33:37<00:00, 28.01s/it]100%|██████████| 69/69 [33:37<00:00, 29.23s/it]
+0it [00:00, ?it/s]351it [00:00, 47711.98it/s]
+0.13746379651966045

@@ -1,0 +1,9 @@
+### Regularize script ###
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/evaluation/evaluate.py", line 13, in <module>
+    from infinite_bench.calculate_metrics import calculate_metrics as infinite_bench_scorer
+ModuleNotFoundError: No module named 'infinite_bench'
+srun: error: jean-zay-iam27: task 0: Exited with exit code 1
+srun: Terminating StepId=1000362.0

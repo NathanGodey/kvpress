@@ -1,0 +1,77 @@
+Using the latest cached version of the dataset since simonjegou/ruler couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration '4096' at /lustre/fsn1/projects/rech/awr/uof65ov/hf_cache/simonjegou___ruler/4096/0.0.0/24adceac8a0e6532936e8d721cd9e9084d2e4686 (last modified on Mon Nov 25 16:14:41 2024).
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  6.57it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  6.86it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  7.09it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  7.84it/s]
+  0%|          | 0/6500 [00:00<?, ?it/s]The `seen_tokens` attribute is deprecated and will be removed in v4.41. Use the `cache_position` model input instead.
+  0%|          | 0/6500 [00:03<?, ?it/s]
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/evaluation/evaluate.py", line 185, in <module>
+    Fire(evaluate)
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 143, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 477, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/evaluation/evaluate.py", line 162, in evaluate
+    output = pipe(
+             ^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/transformers/pipelines/base.py", line 1302, in __call__
+    return self.run_single(inputs, preprocess_params, forward_params, postprocess_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/transformers/pipelines/base.py", line 1309, in run_single
+    model_outputs = self.forward(model_inputs, **forward_params)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/transformers/pipelines/base.py", line 1209, in forward
+    model_outputs = self._forward(model_inputs, **forward_params)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/kvpress/pipeline.py", line 167, in _forward
+    self.model(
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 1190, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 945, in forward
+    layer_outputs = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 676, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+                                                          ^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1844, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1801, in inner
+    hook_result = hook(self, args, kwargs, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/kvpress/presses/base_press.py", line 110, in forward_hook
+    scores = self.score(module, hidden_states, keys, values, attentions, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/kvpress/presses/qfilter_press.py", line 33, in score
+    scores[..., -self.window_size:] = torch.inf
+                 ^^^^^^^^^^^^^^^^
+AttributeError: 'QFilterPress' object has no attribute 'window_size'
+srun: error: jean-zay-iam36: task 0: Exited with exit code 1
+srun: Terminating StepId=1015986.0

@@ -70,6 +70,23 @@ def get_partial_match(reference, hypothesis):
     except Exception:
         return 0, count
 
+def get_exact_mention(reference, hypothesis):
+    reference = eval(reference)
+    count = len(reference)
+    try:
+        hypothesis = eval(hypothesis)
+        assert isinstance(hypothesis, dict)
+        partial_score_count = 0
+        for key in reference:
+            if key in hypothesis:
+                true_set = set(reference[key].split())
+                pred_set = set(hypothesis[key].split())
+                if len(true_set.intersection(pred_set)) > 0:
+                    partial_score_count += 1
+        return partial_score_count, count
+    except Exception:
+        return 0, count
+
 
 def try_except_metric(metric_fn):
     def wrapped_metric(answer, predicted_answer):

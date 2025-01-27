@@ -43,11 +43,19 @@ def calculate_metrics(df: pd.DataFrame) -> dict:
     np_pattern = re.compile(r"[\x00-\x1f]")
     df["predicted_answer"] = df["predicted_answer"].apply(lambda x: np_pattern.sub("", x.strip()).strip())
 
+    total_preds = 0
+    sum_score = 0
+
     for task, df_task in df.groupby("task"):
         task_category = task.split("_")[0]
         metric_fn = string_match_part if task_category == "qa" else string_match_all
         preds = df_task["predicted_answer"].tolist()
         refs = df_task["answer"].tolist()
+
         score = metric_fn(preds, refs)
         scores[task] = {"string_match": score}
+
+        total_preds += len(refs)
+        sum_score += score*len(refs)
+    scores["avg"] = sum_score/total_preds
     return scores

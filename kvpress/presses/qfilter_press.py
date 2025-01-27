@@ -5,7 +5,14 @@
 import torch
 from torch import nn
 
+from huggingface_hub import PyTorchModelHubMixin
+
 from kvpress.presses.base_press import BasePress
+
+class QFilters(torch.nn.Module, PyTorchModelHubMixin):
+    def __init__(self, num_layers, num_kv_heads, kv_head_dim):
+        super().__init__()
+        self.q_filters = torch.nn.Parameter(torch.randn(num_layers, num_kv_heads, kv_head_dim))
 
 
 class QFilterPress(BasePress):
@@ -21,5 +28,6 @@ class QFilterPress(BasePress):
         attentions: torch.Tensor,
         kwargs,
     ) -> torch.Tensor:
-        layer_q_filter = self.q_filters[module.layer_idx]
-        return -layer_q_filter*keys.sum(dim=-1)
+        layer_q_filter = self.q_filters[module.layer_idx].to(keys.device)
+        scores = -(layer_q_filter[None,:,None]*keys).sum(dim=-1)
+        return scores

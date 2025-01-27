@@ -11,6 +11,8 @@ from kvpress.presses.observed_attention_press import ObservedAttentionPress
 from kvpress.presses.qfilter_press import QFilterPress
 from kvpress.presses.random_press import RandomPress
 from kvpress.presses.snapkv_press import SnapKVPress
+from kvpress.presses.tova_press import TOVAPress
+
 from kvpress.presses.streaming_llm_press import StreamingLLMPress
 
 __all__ = [
@@ -21,6 +23,7 @@ __all__ = [
     "QFilterPress",
     "RandomPress",
     "SnapKVPress",
+    "TOVAPress",
     "StreamingLLMPress",
     "KVPressTextGenerationPipeline",
     "apply_per_layer_compression",

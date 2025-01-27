@@ -96,7 +96,8 @@ class BasePress:
         q_len = hidden_states.shape[1]
 
         # Don't compress if the compression ratio is 0 or this is not pre-filling
-        if (self.compression_ratio == 0) or (cache.seen_tokens > q_len):
+        if (self.compression_ratio == 0):
+        # if (self.compression_ratio == 0) or (cache.seen_tokens > q_len):
             return output
 
         if isinstance(cache, QuantizedCache):

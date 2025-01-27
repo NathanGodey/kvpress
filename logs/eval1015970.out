@@ -1,0 +1,3 @@
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+slurmstepd: error: *** JOB 1015970 ON jean-zay-iam36 CANCELLED AT 2024-11-26T23:48:23 ***
+slurmstepd: error: *** STEP 1015970.0 ON jean-zay-iam36 CANCELLED AT 2024-11-26T23:48:23 ***

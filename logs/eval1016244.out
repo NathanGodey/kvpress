@@ -1,0 +1,31 @@
+Using the latest cached version of the dataset since simonjegou/loogle couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/evaluation/evaluate.py", line 185, in <module>
+    Fire(evaluate)
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 143, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 477, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/evaluation/evaluate.py", line 114, in evaluate
+    df = load_dataset(DATASET_DICT[dataset], data_dir, split="test").to_pandas()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/datasets/load.py", line 2606, in load_dataset
+    builder_instance = load_dataset_builder(
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/datasets/load.py", line 2314, in load_dataset_builder
+    builder_instance: DatasetBuilder = builder_cls(
+                                       ^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/datasets/packaged_modules/cache/cache.py", line 140, in __init__
+    config_name, version, hash = _find_hash_in_cache(
+                                 ^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/datasets/packaged_modules/cache/cache.py", line 65, in _find_hash_in_cache
+    raise ValueError(
+ValueError: Couldn't find cache for simonjegou/loogle for config 'longdepqa'
+Available configs in the cache: ['default-1f73c796e182977f', 'longdep_qa', 'shortdep_qa']
+srun: error: jean-zay-iam03: task 0: Exited with exit code 1
+srun: Terminating StepId=1016244.0

@@ -32,6 +32,8 @@ class ExpectedAttentionPress(BasePress):
     n_sink: int = 4
     use_covariance: bool = True
     use_vnorm: bool = True
+    mean_query = None
+    cov_query = None
 
     def get_query_statistics(self, module: nn.Module, hidden_states: torch.Tensor):
         """
@@ -108,12 +110,14 @@ class ExpectedAttentionPress(BasePress):
     ) -> torch.Tensor:
 
         # Remove sink tokens
-        assert keys.size(2) > self.n_sink, f"Input should contain more tokens than n_sink={self.n_sink}"
-        keys = keys[:, :, self.n_sink :]
-        values = values[:, :, self.n_sink :]
+        # assert keys.size(2) > self.n_sink, f"Input should contain more tokens than n_sink={self.n_sink}"
+        # keys = keys[:, :, self.n_sink :]
+        # values = values[:, :, self.n_sink :]
 
         # Compute query statistics
-        mean_query, cov_query = self.get_query_statistics(module, hidden_states)
+        if self.mean_query is None:
+            self.mean_query, self.cov_query = self.get_query_statistics(module, hidden_states)
+        mean_query, cov_query = self.mean_query, self.cov_query
 
         # Compute scores
         bsz, num_key_value_heads, q_len, d = keys.shape
@@ -132,6 +136,6 @@ class ExpectedAttentionPress(BasePress):
             scores = scores * values.norm(dim=-1)
 
         # Add back the sink tokens. Use max score to make sure they are not pruned.
-        scores = F.pad(scores, (self.n_sink, 0), value=scores.max().item())
+        # scores = F.pad(scores, (self.n_sink, 0), value=scores.max().item())
 
         return scores

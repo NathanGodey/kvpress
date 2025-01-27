@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/evaluation/evaluate.py", line 187, in <module>
+    Fire(evaluate)
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 143, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 477, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/evaluation/evaluate.py", line 99, in evaluate
+    assert dataset in DATASET_DICT, f"No dataset found for {dataset}"
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: No dataset found for infinite_bench
+srun: error: jean-zay-iam32: task 0: Exited with exit code 1
+srun: Terminating StepId=1254888.0

@@ -5,6 +5,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Optional
+import pickle
 
 import torch
 from datasets import load_dataset
@@ -23,8 +24,10 @@ from kvpress import (
     QFilterPress,
     RandomPress,
     SnapKVPress,
+    TOVAPress,
     StreamingLLMPress,
 )
+from kvpress.presses.qfilter_press import QFilters
 
 logger = logging.getLogger(__name__)
 
@@ -43,12 +46,14 @@ SCORER_DICT = {
 }
 
 PRESS_DICT = {
+    "qfilter": QFilterPress(),
     "expected_attention": ExpectedAttentionPress(),
     "knorm": KnormPress(),
     "observed_attention": ObservedAttentionPress(),
     "random": RandomPress(),
     "snapkv": SnapKVPress(),
     "streaming_llm": StreamingLLMPress(),
+    "tova": TOVAPress(),
 }
 
 
@@ -108,7 +113,7 @@ def evaluate(
         logger.warning(f"Results already exist at {save_filename}")
 
     # Load dataframe
-    df = load_dataset(DATASET_DICT[dataset], data_dir=data_dir, split="test").to_pandas()
+    df = load_dataset(DATASET_DICT[dataset], data_dir, split="test").to_pandas()
     if fraction < 1.0:
         df = df.sample(frac=fraction, random_state=42)
 
@@ -123,12 +128,13 @@ def evaluate(
     press.compression_ratio = compression_ratio
 
     if isinstance(press, QFilterPress):
-        qfilters = pickle.load(open(f"/gpfswork/rech/awr/uof65ov/kv_cache_comp/filters/{model}/svd5000.pkl", "rb"))
-        press.qfilters = qfilters
+        model_suffix = model.split("/")[-1]
+        q_filters = QFilters.from_pretrained(f"nthngdy/{model_suffix}_qfilt")
+        press.q_filters = q_filters.q_filters
 
     # Initialize pipeline with the correct attention implementation
     if isinstance(press, ObservedAttentionPress):
-        model_kwargs = {"attn_implementation": "eager"}
+        model_kwargs = {"attn_implementation": "sdpa"}
     else:
         try:
             import flash_attn  # noqa: F401

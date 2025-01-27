@@ -1,0 +1,10 @@
+### Regularize script ###
+/var/spool/slurmd/job1000358/slurm_script: line 19: venv/bin/activate: No such file or directory
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/evaluation/evaluate.py", line 10, in <module>
+srun: error: jean-zay-iam27: task 0: Exited with exit code 1
+srun: Terminating StepId=1000358.0
+    import torch
+ModuleNotFoundError: No module named 'torch'

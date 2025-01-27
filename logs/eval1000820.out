@@ -1,0 +1,29 @@
+Using the latest cached version of the dataset since simonjegou/loogle couldn't be found on the Hugging Face Hub (offline mode is enabled).
+Found the latest cached dataset configuration 'shortdep_qa' at /lustre/fsn1/projects/rech/awr/uof65ov/hf_cache/simonjegou___loogle/shortdep_qa/0.0.0/6e3eaf28d24ce34933170c85de36be2448d0d2a7 (last modified on Mon Nov 25 15:20:25 2024).
+Traceback (most recent call last):
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/evaluation/evaluate.py", line 185, in <module>
+    Fire(evaluate)
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 143, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 477, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/kvpress/evaluation/evaluate.py", line 130, in evaluate
+    q_filters = QFilters.from_pretrained(f"nthngdy/{model_suffix}_qfilt")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/huggingface_hub/hub_mixin.py", line 571, in from_pretrained
+    instance = cls._from_pretrained(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/fswork/projects/rech/awr/uof65ov/kv_cache_comp/venv/lib/python3.11/site-packages/huggingface_hub/hub_mixin.py", line 791, in _from_pretrained
+    model = cls(**model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^
+TypeError: QFilters.__init__() missing 3 required positional arguments: 'num_layers', 'num_kv_heads', and 'kv_head_dim'
+srun: error: jean-zay-iam06: task 0: Exited with exit code 1
+srun: Terminating StepId=1000820.0
