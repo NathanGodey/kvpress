@@ -28,6 +28,12 @@ class QFilterPress(BasePress):
         attentions: torch.Tensor,
         kwargs,
     ) -> torch.Tensor:
-        layer_q_filter = self.q_filters[module.layer_idx].to(keys.device)
+        layer_q_filter = self.q_filters[module.layer_idx]
+        if layer_q_filter.dtype != keys.dtype:
+            layer_q_filter = layer_q_filter.to(keys.dtype)
+        
+        if layer_q_filter.device != keys.device:
+            layer_q_filter = layer_q_filter.to(keys.device)
+        
         scores = -(layer_q_filter[None,:,None]*keys).sum(dim=-1)
         return scores

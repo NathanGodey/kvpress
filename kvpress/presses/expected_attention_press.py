@@ -122,6 +122,8 @@ class ExpectedAttentionPress(BasePress):
         # Compute scores
         bsz, num_key_value_heads, q_len, d = keys.shape
         keys = repeat_kv(keys, module.num_key_value_groups).transpose(2, 3)
+        mean_query = mean_query.to(keys.device)
+        cov_query = cov_query.to(keys.device)
         scores = torch.matmul(mean_query.unsqueeze(2), keys).squeeze(2) / math.sqrt(d)
         if self.use_covariance:
             scores += torch.einsum("bhin, bhij, bhjn->bhn", keys, cov_query, keys) / d / 2

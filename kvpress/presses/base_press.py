@@ -106,9 +106,10 @@ class BasePress:
         else:
             keys = cache.key_cache[module.layer_idx]
             values = cache.value_cache[module.layer_idx]
-
-        with torch.no_grad():
-            scores = self.score(module, hidden_states, keys, values, attentions, kwargs)
+            
+        with torch.autograd.profiler.record_function("Press scoring"):
+            with torch.no_grad():
+                scores = self.score(module, hidden_states, keys, values, attentions, kwargs)
 
         # Prune KV pairs with the lowest scores
         n_kept = int(q_len * (1 - self.compression_ratio))
